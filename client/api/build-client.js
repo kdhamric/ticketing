@@ -7,10 +7,17 @@ const BuildClient = ({ req }) => {
     //we are on the server
     //we need to get the cookie from the client and pass it on this request being sent by nextjs.  
     //Easy way is to just pass all the headers from the incoming request.
+
     return axios.create ({
-        baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local', 
-        headers:  req.headers    
+      baseURL: 'http://www.kenhamric.com', 
+      headers:  req.headers    
     });
+
+    //changed when deployed to digital ocean
+    //return axios.create ({
+    //    baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local', 
+    //    headers:  req.headers    
+    //});
 
   } else {
     //we are on the browser
